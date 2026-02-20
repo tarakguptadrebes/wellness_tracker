@@ -16,7 +16,6 @@ def create_user(request):
             messages.error(request, 'Username already exists')
         else:
             User.objects.create_user(username=username, email=email, password=password)
-            messages.success(request, 'User created successfully')
             return redirect('login_user')
     return render(request, 'users/create_user.html')
 
@@ -29,7 +28,6 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request, 'Logged in successfully')
             return redirect('dashboard') 
         else:
             messages.error(request, 'Invalid username or password')
