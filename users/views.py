@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 
@@ -22,5 +23,14 @@ def create_user(request):
 def login_user(request):
     if request.method == 'POST':
         # Handle user login logic here
-        pass
+        username=request.POST['username']
+        password=request.POST['password']
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, 'Logged in successfully')
+            return redirect('dashboard') 
+        else:
+            messages.error(request, 'Invalid username or password')
     return render(request, 'users/login_user.html')
