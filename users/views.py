@@ -13,7 +13,6 @@ def create_user(request):
             
         if User.objects.filter(username=username).exists():
             messages.error(request, 'Username already exists')
-            pass
         else:
             User.objects.create_user(username=username, email=email, password=password)
             messages.success(request, 'User created successfully')
