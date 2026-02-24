@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
+    'daily_tracker.apps.DailyTrackerConfig',
+    'dashboard.apps.DashboardConfig',
 ]
 
 MIDDLEWARE = [
