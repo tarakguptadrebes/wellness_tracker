@@ -18,3 +18,5 @@ def daily_entry_view(request):
     else:
         form = DailyEntryForm(instance=entry)
     return render(request, 'daily_tracker/daily_entry.html', {'form': form})
+
+

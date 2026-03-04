@@ -6,6 +6,6 @@ class DailyEntryForm(forms.ModelForm):
         model = DailyEntry
         fields = ['mood', 'sleep']
         widgets = {
-            'mood': forms.NumberInput(attrs={'min': 1, 'max': 10}),
+            'mood': forms.HiddenInput(),
             'sleep': forms.NumberInput(attrs={'min': 0, 'max': 24}),
         }

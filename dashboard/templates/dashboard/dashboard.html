@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,12 @@
 </head>
 <body>
     <h2>Dashboard</h2>
-    <p>Welcome to your wellness dashboard! Here you can see an overview of your daily entries, track your mood and sleep patterns, and access insights to help you improve your well-being.</
+    <p>Welcome to your wellness dashboard! Here you can see an overview of your daily entries, track your mood and sleep patterns, and access insights to help you improve your well-being.</p>
+    <a href = "{%url 'daily-entry'%}">Add mood</a> <br>
+    <a href = "{%url 'login_user'%}">Logout</a>
+    <h3>Your Mood Overview</h3>
+    <canvas id="moodChart" width="400" height="200"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'dashboard/dashboard.js' %}"></script>
 </body>
 </html>

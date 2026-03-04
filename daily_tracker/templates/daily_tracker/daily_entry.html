@@ -10,7 +10,15 @@
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
+        <div>
+            <button type="button" class="mood-button" data-value="1">1</button>
+            <button type="button" class="mood-button" data-value="2">2</button>
+            <button type="button" class="mood-button" data-value="3">3</button>
+            <button type="button" class="mood-button" data-value="4">4</button>
+            <button type="button" class="mood-button" data-value="5">5</button>
+        </div>
         <button type="submit">Save Entry</button>
     </form>
+    <a href = "{%url 'dashboard'%}">Back</a>
 </body>
 </html>
