@@ -7,16 +7,20 @@
 </head>
 <body>
     <h2>Daily Entry</h2>
+    {% load static %}
+    <script src="{% static 'daily_tracker/daily_entry.js' %}"></script>
+
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <div>
-            <button type="button" class="mood-button" data-value="1">1</button>
-            <button type="button" class="mood-button" data-value="2">2</button>
-            <button type="button" class="mood-button" data-value="3">3</button>
-            <button type="button" class="mood-button" data-value="4">4</button>
-            <button type="button" class="mood-button" data-value="5">5</button>
-        </div>
+        
+        {{ form.mood }} <button type="button" class="mood-button" onclick="selectMood(1, event)">😭</button>
+        <button type="button" class="mood-button" onclick="selectMood(2, event)">😢</button>
+        <button type="button" class="mood-button" onclick="selectMood(3, event)">😐</button>
+        <button type="button" class="mood-button" onclick="selectMood(4, event)">😊</button>
+        <button type="button" class="mood-button" onclick="selectMood(5, event)">🤩</button>
+
+        <p>Sleep: {{ form.sleep }}</p>
+
         <button type="submit">Save Entry</button>
     </form>
     <a href = "{%url 'dashboard'%}">Back</a>

@@ -12,7 +12,18 @@
     <a href = "{%url 'daily-entry'%}">Add mood</a> <br>
     <a href = "{%url 'login_user'%}">Logout</a>
     <h3>Your Mood Overview</h3>
-    <canvas id="moodChart" width="400" height="200"></canvas>
+    <canvas id="moodChart"
+        width="400" 
+        height="200"
+        data-dates='{{ dates|safe }}'
+        data-moods='{{ moods|safe }}'>
+    </canvas>
+    <canvas id="sleepChart"
+        width="400" 
+        height="200"
+        data-dates='{{ dates|safe }}'
+        data-sleeps='{{ sleeps|safe }}'>
+    </canvas>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{% static 'dashboard/dashboard.js' %}"></script>
 </body>
