@@ -13,17 +13,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 datasets: [{
                     label: 'Mood',
                     data: moodData,
-                    borderColor: 'blue',
-                    tension: 0.1
+                    borderColor: '#4f46e5',
+                    tension: 0
                 }]
             },
-            options: { 
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
                 scales: { 
                     y: { 
                         min: 1, 
                         max: 5,
                         ticks: {
                             stepSize: 1,
+                            font: {
+                                size: 20,
+                            },
                             callback: function(value) {
                                 const moodLabels = {
                                     1: '😭',
@@ -53,11 +63,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 datasets: [{
                     label: 'Sleep',
                     data: sleepData,
-                    borderColor: 'green',
-                    tension: 0.1
+                    borderColor: '#4f46e5',
+                    tension: 0
                 }]
             },
-            options: { scales: { y: { min: 0, max: 24 } } }
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: { y: { min: 0, max: 24 } }
+            }
         });
     }
 });
